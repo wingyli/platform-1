@@ -12,17 +12,17 @@ class Hero {
   }
   moveLeft() {
     // this.dx = this.dx - (gridSize * 1/10)
-    this.dx -= gridSize * 1/10
+    this.dx = gridSize * -(1/10)
   }
   moveRight() {
-    this.dx += gridSize * 1/10
+    this.dx = gridSize * 1/10
   }
   jump() {
     // todo if the hero is already airborne, exit early
     if (this.airborne) {
       return
     }
-    this.dy += gridSize * -(1/3)
+    this.dy = gridSize * -(1/3)
   }
   step() {
     // todo move the hero position (x,y) by speed (dx,dy)
