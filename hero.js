@@ -22,6 +22,7 @@ class Hero {
     if (this.airborne) {
       return
     }
+    this.airborne = true // this was the fix!
     this.dy = gridSize * -(1/3)
   }
   step() {
@@ -48,12 +49,13 @@ class Hero {
     // todo figure out which sprite to draw
     console.log('status of hero stand sprite', heroStandSprite.loaded)
     let image = heroStandSprite.image
+    if (Math.abs(this.dx) > 0.1) {
+      // we know the hero is moving
+      image = heroWalkSprite1.image
+    }
     if (this.airborne) { // same as if (this.airborne === true)
       // we know the hero is in the air already
       image = heroJumpSprite.image
-    } else if (Math.abs(this.dx) > 0) {
-      // we know the hero is moving
-      image = heroWalkSprite1.image
     }
     
     // todo draw the sprite
